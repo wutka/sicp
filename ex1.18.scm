@@ -1,0 +1,8 @@
+(define (fast-mult x y)
+  (define (iter x y a)
+    (cond ((= y 0) a)
+	  ((even? y) (iter (double x) (/ y 2) a))
+	  (else (iter x (- y 1) (+ x a)))))
+  (define (even? n) (= (remainder n 2) 0))
+  (define (double x) (+ x x))
+  (iter x y 0))

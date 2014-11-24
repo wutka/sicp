@@ -1,0 +1,5 @@
+(define (fast-mult x y)
+  (define (double x) (+ x x))
+  (cond ((= y 0) 0)
+        ((even? y) (double (fast-mult x (/ y 2))))
+        (else (+ x (fast-mult x (- y 1))))))
